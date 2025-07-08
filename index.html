@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XKCD Comic Subscription Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://imgs.xkcd.com/comics/code_quality.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      backdrop-filter: blur(4px);
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+      font-size: 32px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      font-weight: bold;
+    }
+
+    .subscribe {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .unsubscribe {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .send-once {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .send-auto {
+      background-color: #17a2b8;
+      color: white;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📬 XKCD Comic Subscriptions</h1>
+
+    <!-- Subscribe Button -->
+    <form action="/register.php" method="get">
+      <button class="button subscribe">📥 Subscribe</button>
+    </form>
+
+    <!-- Unsubscribe Button -->
+    <form action="/unsubscribe.php" method="get">
+      <button class="button unsubscribe">📤 Unsubscribe</button>
+    </form>
+
+    <!-- Start Sending One Comic -->
+    <form action="/send_comic_manual.php" method="post">
+      <button class="button send-once">🚀 Send One Comic Now</button>
+    </form>
+
+    <!-- Start Auto Sending Comics Every X Minutes -->
+    <form action="/send_cron_manual.php" method="post">
+      <button class="button send-auto">⏱️ Start Sending at Interval</button>
+    </form>
+
+    <footer>
+      Developed by Ankit • Powered by XKCD API
+    </footer>
+  </div>
+</body>
+</html>
